@@ -28,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
         btnAbrirTela = (Button)findViewById(R.id.btnAbrirTela);
         btnNavegarMapa = (Button)findViewById(R.id.btnNavegarMapa);
 
+        btnAbrirMapa.setOnClickListener(v -> {
+            Uri gmmIntentUri =
+            Uri.parse("geo:0,0?q=Avenida+general+carneiro+1427");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            startActivity(mapIntent);
+
+        });
+
         btnAbrirSite.setOnClickListener(v -> {
             Uri webpage = Uri.parse("https://www.facens.br");
             Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
