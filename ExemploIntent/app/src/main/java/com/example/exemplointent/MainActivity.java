@@ -28,9 +28,15 @@ public class MainActivity extends AppCompatActivity {
         btnAbrirTela = (Button)findViewById(R.id.btnAbrirTela);
         btnNavegarMapa = (Button)findViewById(R.id.btnNavegarMapa);
 
+        btnAbrirSite.setOnClickListener(v -> {
+            Uri webpage = Uri.parse("https://www.facens.br");
+            Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+            startActivity(intent);
+        });
+
         btnligar.setOnClickListener(v -> {
             Uri uri = Uri.parse("tel:1599999999");
-            Intent intent = new Intent(Intent.ACTION_DIAL,uri);
+            Intent intent = new Intent(Intent.ACTION_CALL,uri);
             int permissionCheck =
                     ContextCompat.checkSelfPermission(
                     this, android.Manifest.permission.CALL_PHONE);
