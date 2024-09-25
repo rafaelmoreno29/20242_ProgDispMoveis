@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         btnAbrirTela = (Button)findViewById(R.id.btnAbrirTela);
         btnNavegarMapa = (Button)findViewById(R.id.btnNavegarMapa);
 
+        btnAbrirTela.setOnClickListener(v -> {
+            Intent i = new Intent(this,CompartilharActivity.class);
+            startActivity(i);
+        });
+
         btnAbrirMapa.setOnClickListener(v -> {
             Uri uri =
             Uri.parse("geo:0,0?q=Avenida+general+carneiro+1427");
