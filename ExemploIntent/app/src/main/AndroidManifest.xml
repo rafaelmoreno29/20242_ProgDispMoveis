@@ -5,10 +5,9 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    <uses-permission
-        android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission
-        android:name="android.permission.CALL_PHONE"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExemploIntent"
         tools:targetApi="31">
+        <activity
+            android:name=".CompartilharActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

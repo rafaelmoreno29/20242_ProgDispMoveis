@@ -29,9 +29,16 @@ public class MainActivity extends AppCompatActivity {
         btnNavegarMapa = (Button)findViewById(R.id.btnNavegarMapa);
 
         btnAbrirMapa.setOnClickListener(v -> {
-            Uri gmmIntentUri =
+            Uri uri =
             Uri.parse("geo:0,0?q=Avenida+general+carneiro+1427");
-            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(mapIntent);
+        });
+
+        btnNavegarMapa.setOnClickListener(v -> {
+            Uri uri =
+      Uri.parse("google.navigation:q=Avenida+general+carneiro+1427");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(mapIntent);
 
         });
