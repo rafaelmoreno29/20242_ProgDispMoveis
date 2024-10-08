@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,12 @@ public class PessoaAdapter extends
 
     @Override
     public void onBindViewHolder(@NonNull PessoaViewHolder holder, int position) {
+        Pessoa p = pessoas.get(position);
+        holder.textNome.setText(p.getNome());
+        holder.buttonEditar.setOnClickListener(v -> {
+            Toast.makeText(
+    holder.itemView.getContext(),"editar",Toast.LENGTH_SHORT).show();
+        });
 
     }
 
