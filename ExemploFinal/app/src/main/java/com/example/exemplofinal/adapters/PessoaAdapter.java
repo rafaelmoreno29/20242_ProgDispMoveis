@@ -1,5 +1,6 @@
 package com.example.exemplofinal.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.exemplofinal.PessoaDetalheActivity;
 import com.example.exemplofinal.R;
 import com.example.exemplofinal.models.Pessoa;
 
@@ -38,10 +40,16 @@ public class PessoaAdapter extends
         Pessoa p = pessoas.get(position);
         holder.textNome.setText(p.getNome());
         holder.buttonEditar.setOnClickListener(v -> {
-            Toast.makeText(
-    holder.itemView.getContext(),"editar",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(holder.itemView.getContext(),
+                                            PessoaDetalheActivity.class);
+            intent.putExtra("id",p.getId());
+            holder.itemView.getContext().startActivity(intent);
         });
-
+        holder.buttonExcluir.setOnClickListener(v -> {
+            pessoas.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, pessoas.size());
+        });
     }
 
     @Override

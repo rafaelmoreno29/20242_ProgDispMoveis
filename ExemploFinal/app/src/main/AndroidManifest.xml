@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExemploFinal"
         tools:targetApi="31">
         <activity
+            android:name=".PessoaDetalheActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListaPessoaActivity"
             android:exported="true">
             <intent-filter>
