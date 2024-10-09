@@ -35,7 +35,28 @@ public class Pessoa {
         ArrayList<Pessoa>pessoas = new ArrayList<>();
         pessoas.add(new Pessoa(1,"Rafael Moreno"));
         pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores")); pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
         pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+        pessoas.add(new Pessoa(1,"Rafael Moreno"));
+        pessoas.add(new Pessoa(2,"José da Silva"));
+        pessoas.add(new Pessoa(3,"Maria das Dores"));
+
 
         return pessoas;
     }
