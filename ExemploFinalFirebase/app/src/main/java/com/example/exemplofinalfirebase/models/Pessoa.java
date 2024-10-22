@@ -3,22 +3,47 @@ package com.example.exemplofinalfirebase.models;
 import java.util.ArrayList;
 
 public class Pessoa {
-    private int id;
+    private String id;
     private String nome;
+    private String email;
+    private String celular;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome) {
+    public Pessoa(String id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public int getId() {
+    public Pessoa(String id, String nome, String email, String celular) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.celular = celular;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,31 +56,10 @@ public class Pessoa {
     }
 
     public static ArrayList<Pessoa> getPessoas(){
-        ArrayList<Pessoa>pessoas = new ArrayList<>();
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores")); pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-        pessoas.add(new Pessoa(1,"Rafael Moreno"));
-        pessoas.add(new Pessoa(2,"José da Silva"));
-        pessoas.add(new Pessoa(3,"Maria das Dores"));
-
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
+        pessoas.add(new Pessoa("1","Rafael Moreno"));
+        pessoas.add(new Pessoa("2","José da Silva"));
+        pessoas.add(new Pessoa("3","Maria das Dores"));
 
         return pessoas;
     }
