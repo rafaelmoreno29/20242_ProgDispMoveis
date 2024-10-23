@@ -73,7 +73,6 @@ public class ListaPessoaActivity extends AppCompatActivity {
             }
             configurarRecycler();
              } }});
-
     }
 
     @Override

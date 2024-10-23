@@ -35,7 +35,7 @@ public class PessoaDetalheActivity extends AppCompatActivity {
         editEmail = (EditText)findViewById(R.id.editTextEmail);
         editCelular = (EditText)findViewById(R.id.editTextCelular);
 
-        if(getIntent().hasExtra(id)) {
+        if(getIntent().hasExtra("id")) {
             id = getIntent().getStringExtra("id");
             db.collection("pessoas").document(id).get()
                     .addOnCompleteListener(
@@ -44,6 +44,9 @@ public class PessoaDetalheActivity extends AppCompatActivity {
            public void onComplete(@NonNull Task<DocumentSnapshot> task){
                pessoa = task.getResult().toObject(Pessoa.class);
                pessoa.setId(task.getResult().getId());
+               editCelular.setText(pessoa.getCelular());
+               editEmail.setText(pessoa.getEmail());
+               editNome.setText(pessoa.getNome());
            }
        });
         }
