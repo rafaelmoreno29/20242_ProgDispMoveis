@@ -33,10 +33,10 @@ public class ListaPessoaActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        configurarRecycler();
+        buscarPessoas();
     }
     public void configurarRecycler(){
-        buscarPessoas();
+
         pessoaAdapter = new PessoaAdapter(pessoas);
         recyclerViewPessoa.setAdapter(pessoaAdapter);
         //layout vertical
@@ -71,6 +71,7 @@ public class ListaPessoaActivity extends AppCompatActivity {
                 p.setId(document.getId());
                 pessoas.add(p);
             }
+            configurarRecycler();
              } }});
 
     }
