@@ -3,6 +3,7 @@ package com.example.exemplofinalfirebase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -45,8 +46,27 @@ public class PessoaDetalheActivity extends AppCompatActivity {
                pessoa.setId(task.getResult().getId());
            }
        });
-
         }
+
+        btnSalvar.setOnClickListener(v -> {
+            if(id.equals("")){
+                //insere
+                pessoa = new Pessoa();
+                pessoa.setNome(editNome.getText().toString());
+                pessoa.setCelular(editCelular.getText().toString());
+                pessoa.setEmail(editEmail.getText().toString());
+                db.collection("pessoas").add(pessoa);
+            }else{
+                //edita
+                pessoa.setNome(editNome.getText().toString());
+                pessoa.setCelular(editCelular.getText().toString());
+                pessoa.setEmail(editEmail.getText().toString());
+                db.collection("pessoas").document(id).set(pessoa);
+            }
+            Toast.makeText(this, "Salvo com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
+            finish();
+        });
 
 
 
