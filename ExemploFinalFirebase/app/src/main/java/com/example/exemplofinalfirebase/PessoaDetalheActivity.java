@@ -22,6 +22,7 @@ public class PessoaDetalheActivity extends AppCompatActivity {
     Button btnSalvar;
     String id = "";
     FirebaseFirestore db;
+    Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class PessoaDetalheActivity extends AppCompatActivity {
         editNome = (EditText)findViewById(R.id.editTextNome);
         editEmail = (EditText)findViewById(R.id.editTextEmail);
         editCelular = (EditText)findViewById(R.id.editTextCelular);
+
         if(getIntent().hasExtra(id)) {
             id = getIntent().getStringExtra("id");
             db.collection("pessoas").document(id).get()
@@ -39,8 +41,8 @@ public class PessoaDetalheActivity extends AppCompatActivity {
        new OnCompleteListener<DocumentSnapshot>() {
            @Override
            public void onComplete(@NonNull Task<DocumentSnapshot> task){
-               Pessoa usu = task.getResult().toObject(Pessoa.class);
-               usu.setId(task.getResult().getId());
+               pessoa = task.getResult().toObject(Pessoa.class);
+               pessoa.setId(task.getResult().getId());
            }
        });
 
