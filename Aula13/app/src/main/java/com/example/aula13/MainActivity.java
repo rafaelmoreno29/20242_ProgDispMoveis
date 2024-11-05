@@ -2,6 +2,7 @@ package com.example.aula13;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         usuarioService = ApiClient.getUsuarioService();
+        
+        inserirUsuarioTeste();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -35,6 +38,22 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    private void inserirUsuarioTeste() {
+        Usuario usu = new Usuario("Rafael",
+                "rafael.moreno@facens.br","123",11);
+        Call<Usuario> call = usuarioService.postUsuario(usu);
+        call.enqueue(new Callback<Usuario>() {
+      @Override
+      public void onResponse(Call<Usuario> call,Response<Usuario> response) {
+      Toast.makeText(MainActivity.this, "Inseriu!", Toast.LENGTH_SHORT).show();
+      }
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+            }
+        });
+    }
+
 
     @Override
     protected void onResume() {
