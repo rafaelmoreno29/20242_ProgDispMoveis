@@ -1,9 +1,12 @@
 package com.example.exemploautenticacao;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btnEntrar;
     FirebaseAuth auth;
     ProgressBar progressBar;
+    CheckBox ckLembrar;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         btnEntrar = (Button) findViewById(R.id.buttonEntrar);
         txtRegistar = (TextView) findViewById(R.id.TextViewRegistrar);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-
+        ckLembrar = (CheckBox)findViewById(R.id.checkBoxLembrar);
+        sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
         btnEntrar.setOnClickListener(v -> {
             entrar();
         });
@@ -49,6 +55,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         auth = FirebaseAuth.getInstance();
+
+        if(sharedPreferences.contains("email")){
+            txtEmail.setText(sharedPreferences.getString("email",""));
+            txtSenha.setText(sharedPreferences.getString("senha",""));
+        }
+
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -74,6 +87,19 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            if (ckLembrar.isChecked()) {
+                                editor.putString("email", txtEmail.getText().toString());
+                                editor.putString("senha", txtSenha.getText().toString());
+                            } else {
+                                editor.remove("email");
+                                editor.remove("senha");
+                            }
+                            editor.apply();
+
+
                             Intent i = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(i);
                             finish();
